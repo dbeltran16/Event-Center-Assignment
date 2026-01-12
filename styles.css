@@ -1,0 +1,332 @@
+/* Variables */
+:root {
+  --primary: #b89b5e;
+  --dark: #1c1c1c;
+  --light: #f5f5f5;
+  --white: #fff;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #000;
+}
+
+.nav .logo {
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links.show {
+  display: flex;
+}
+
+.nav-links li a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: var(--primary);
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100; /* sits on top of menu */
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--white); /* or #333 if preferred */
+  border-radius: 2px;
+  transition: all 0.3s ease; /* optional: smooth animation */
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+ #menu toggle {display: none;}
+  .hamburger {
+    display: flex;
+    z-index: 1100; /* stays on top */
+  }
+
+  .nav-links {
+    position: relative;
+    top: 60px; /* adjust to your header height */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #000;
+    display: hidden;
+    z-index: 1000;
+  }
+
+  /* Show nav links when toggled */
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 1rem 0;
+    text-align: center;
+  }
+}
+
+/*Hero Section */
+.hero {
+    height: 60vh;        /* hero takes 60% of viewport */
+  min-height: 300px;   /* never too small */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+  padding: 2rem;
+}
+
+.hero h2 { 
+  color:#000;
+  font-size: 2.5rem; 
+  margin-bottom: 1rem; }
+.hero p { color: black;
+  font-size: 1.2rem; 
+   margin-bottom: 2rem; 
+   max-width: 600px; }
+.btn-primary {
+  background: var(--primary);
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.btn-primary:hover {
+  transform: scale(1.05);
+}
+
+/* Feature Cards */
+.features { 
+  padding: 2rem; 
+  text-align: center; }
+.features h2 { 
+  font-size: 2rem; 
+  margin-bottom: 2rem; }
+
+.feature-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-image { 
+  position: relative;
+  width: 100%; 
+  height: 200px; 
+  overflow: hidden; }
+
+.card-image img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; }
+
+.card-image .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;                   /* cover the whole image */
+  display: flex;
+  flex-direction: column;      /* allow multiple lines stacked vertically */
+  align-items: center;         /* horizontal center */
+  justify-content: center;     /* vertical center */
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent dark overlay */
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 3rem;               /* spacing from edges */
+  line-height: 1.4;            /* spacing between lines */
+  word-wrap: break-word;       /* allow text to wrap if long */
+}
+
+.card-content { 
+  padding: 1rem; 
+  text-align: left; }
+.card-content p { 
+  font-size: 0.95rem; 
+  color: #555; 
+  line-height: 1.4; }
+
+.card:hover img { 
+  transform: scale(1.05); }
+.card:hover { 
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+
+/* Gallery */
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.grid-gallery img {
+  width: 100%;
+  height: 200px;    /* desktop height */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Footer */
+footer { text-align: center; 
+  padding: 1rem;
+   background: #111; 
+   color: var(--white); }
+
+.back-top { color: var(--primary); 
+  text-decoration: none; 
+  margin-top: 5px; 
+  display: inline-block; }
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+/* Responsive*/
+@media (max-width: 768px) {
+  .hero h2 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+
+  .feature-cards { 
+    flex-direction: column; 
+    align-items: center; }
+  .card { 
+    max-width: 90%; 
+    margin-bottom: 1.5rem; }
+  .card-image { 
+    height: 150px; }
+  .grid-gallery img { 
+    height: 150px; }
+    .nav {
+  position: relative;
+}
+
+}
+
+/* About Page Banner Cards  */
+
+.about-page {
+  padding: 2rem 1rem;
+}
+
+/* Banner card container */
+.banner-card {
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Image */
+.banner-card .card-image {
+  position: relative;
+  height: 280px;
+}
+
+.banner-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay text */
+.banner-card .overlay {
+  position: absolute;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-card .overlay h2 {
+  color: #fff;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+}
+
+/* Content */
+.banner-card .card-content {
+  padding: 1.5rem;
+}
+
+.banner-card ul {
+  padding-left: 1.2rem;
+}
+
+.banner-card li {
+  margin-bottom: 0.5rem;
+}
+.hamburger {
+  z-index: 1100;
+}
